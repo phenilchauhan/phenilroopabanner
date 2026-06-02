@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PhenilRoopa AI – Advertising Banner</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --gold: #FFCA28;
+    --gold-dark: #F59E0B;
+    --gold-glow: rgba(255, 202, 40, 0.18);
+    --purple: #7C3AED;
+    --purple-mid: #6D28D9;
+    --purple-dark: #4C1D95;
+    --green: #10B981;
+    --navy: #0A0A1A;
+    --navy2: #10102A;
+    --card: rgba(255,255,255,0.04);
+    --border: rgba(255,255,255,0.10);
+    --white: #FFFFFF;
+    --muted: rgba(255,255,255,0.55);
+    --font-display: 'Syne', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--navy);
+    color: var(--white);
+    font-family: var(--font-body);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ── BG MESH ── */
+  .bg-mesh {
+    position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    background:
+      radial-gradient(ellipse 60% 55% at 15% 20%, rgba(124,58,237,0.22) 0%, transparent 65%),
+      radial-gradient(ellipse 50% 45% at 85% 70%, rgba(16,185,129,0.12) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 35% at 50% 50%, rgba(255,202,40,0.06) 0%, transparent 70%),
+      #0A0A1A;
+  }
+
+  /* ── WRAPPER ── */
+  .page {
+    position: relative;
+    z-index: 1;
+    width:100%;
+    max-width:1400px;
+    margin:0 auto;
+    padding:0 0 40px;
+}
+
+  /* ── HERO SECTION ── */
+  .hero {
+    padding: 32px 24px 24px;
+    text-align: center;
+  }
+
+  /* Logo bar */
+  .logo-row {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 28px;
+  }
+  .logo-badge {
+    width: 48px; height: 48px; border-radius: 14px;
+    background: linear-gradient(135deg, var(--purple) 0%, var(--gold-dark) 100%);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-display); font-size: 8px; font-weight: 800;
+    color: white; text-align: center; line-height: 1.2; letter-spacing: 0.5px;
+    flex-shrink: 0;
+    box-shadow: 0 0 24px rgba(124,58,237,0.45);
+  }
+  .logo-text { text-align: left; }
+  .logo-name {
+    font-family: var(--font-display); font-size: 20px; font-weight: 800;
+    background: linear-gradient(90deg, #fff 40%, var(--gold) 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text; line-height: 1.1;
+  }
+  .logo-tag {
+    font-size: 11px; color: var(--muted); letter-spacing: 0.5px; margin-top: 2px;
+  }
+  .location-badge {
+    margin-left: auto;
+    background: rgba(255,202,40,0.12); border: 1px solid rgba(255,202,40,0.30);
+    border-radius: 20px; padding: 4px 12px;
+    font-size: 11px; color: var(--gold); font-weight: 500; white-space: nowrap;
+  }
+
+ /* =========================
+   RESPONSIVE FIXES ONLY
+   ========================= */
+
+.page{
+    width:100%;
+    max-width:1400px;
+    margin:auto;
+}
+
+/* Desktop */
+@media (min-width:1024px){
+
+    .hero{
+        max-width:1200px;
+        margin:auto;
+        padding:60px 40px;
+    }
+
+    .hero-headline{
+        font-size:90px;
+    }
+
+    .hero-sub{
+        font-size:48px;
+    }
+
+    .hero-desc{
+        max-width:700px;
+        font-size:18px;
+    }
+
+    .logo-name{
+        font-size:34px;
+    }
+
+    .stats{
+        max-width:1200px;
+        margin:0 auto 40px;
+    }
+
+    .stat-card{
+        padding:25px;
+    }
+
+    .stat-num{
+        font-size:42px;
+    }
+
+    .showcase{
+        display:grid;
+        grid-template-columns:repeat(2,1fr);
+        gap:24px;
+        padding:0 24px;
+    }
+
+    .site-card{
+        margin-bottom:0;
+    }
+
+    .site-preview{
+        height:400px;
+    }
+
+    .site-preview iframe{
+        width:1440px;
+        height:900px;
+        transform:scale(.42);
+        transform-origin:top left;
+    }
+
+    .included,
+    .cta-section{
+        max-width:1200px;
+        margin:auto;
+    }
+
+    .trust-strip{
+        max-width:1200px;
+        margin:20px auto;
+    }
+
+    .urgency-strip{
+        max-width:1200px;
+        margin:20px auto;
+    }
+
+    .cta-buttons{
+        flex-direction:row;
+        justify-content:center;
+    }
+}
+
+/* Tablet */
+@media (max-width:1023px){
+
+    .showcase{
+        display:grid;
+        grid-template-columns:repeat(2,1fr);
+        gap:20px;
+        padding:0 20px;
+    }
+
+    .site-card{
+        margin-bottom:0;
+    }
+
+    .site-preview{
+        height:260px;
+    }
+}
+
+/* Mobile */
+@media (max-width:768px){
+
+    .page{
+        max-width:100%;
+    }
+
+    .logo-row{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .logo-text{
+        text-align:center;
+    }
+
+    .location-badge{
+        margin-left:0;
+    }
+
+    .hero-headline{
+        font-size:46px;
+    }
+
+    .hero-sub{
+        font-size:28px;
+    }
+
+    .showcase{
+        display:block;
+        padding:0 16px;
+    }
+
+    .site-card{
+        margin-bottom:18px;
+    }
+
+    .stats{
+        grid-template-columns:1fr;
+    }
+
+    .trust-strip{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .cta-buttons{
+        flex-direction:column;
+    }
+}
+
+/* Small Mobile */
+@media (max-width:480px){
+
+    .hero{
+        padding:25px 15px;
+    }
+
+    .hero-headline{
+        font-size:34px;
+    }
+
+    .hero-sub{
+        font-size:22px;
+    }
+
+    .logo-name{
+        font-size:18px;
+    }
+
+    .trust-strip{
+        grid-template-columns:1fr;
+    }
+
+    .site-preview{
+        height:200px;
+    }
+
+    .cta-tagline{
+        font-size:22px;
+    }
+}
+ 
+  /* Hero headline */
+  .eyebrow {
+    font-size: 10px; letter-spacing: 3.5px; color: var(--gold);
+    font-weight: 600; text-transform: uppercase; margin-bottom: 10px;
+  }
+  .hero-headline {
+    font-family: var(--font-display); font-size: 46px; font-weight: 800;
+    line-height: 1.0; letter-spacing: -1px;
+    background: linear-gradient(160deg, #ffffff 30%, #c4b5fd 70%, var(--gold) 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 6px;
+  }
+  .hero-sub {
+    font-family: var(--font-display); font-size: 28px; font-weight: 700;
+    color: var(--gold); line-height: 1.1; margin-bottom: 16px;
+  }
+  .hero-desc {
+    font-size: 14px; color: var(--muted); line-height: 1.65;
+    max-width: 300px; margin: 0 auto 24px;
+  }
+
+  /* Feature pills row */
+  .pills {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    justify-content: center; margin-bottom: 28px;
+  }
+  .pill {
+    background: rgba(255,255,255,0.07); border: 1px solid var(--border);
+    border-radius: 20px; padding: 5px 14px;
+    font-size: 12px; color: rgba(255,255,255,0.80); font-weight: 500;
+  }
+  .pill.accent { background: rgba(255,202,40,0.12); border-color: rgba(255,202,40,0.35); color: var(--gold); }
+
+  /* ── STATS ROW ── */
+  .stats {
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px; padding: 0 24px; margin-bottom: 32px;
+  }
+  .stat-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 16px; padding: 14px 10px; text-align: center;
+  }
+  .stat-num {
+    font-family: var(--font-display); font-size: 24px; font-weight: 800;
+    color: var(--gold); line-height: 1;
+  }
+  .stat-label { font-size: 10px; color: var(--muted); margin-top: 4px; }
+
+  /* ── SECTION LABEL ── */
+  .section-label {
+    display: flex; align-items: center; gap: 10px;
+    padding: 0 24px; margin-bottom: 16px;
+  }
+  .section-label::before, .section-label::after {
+    content: ''; flex: 1; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+  }
+  .section-label span {
+    font-size: 10px; letter-spacing: 2.5px; color: var(--gold);
+    font-weight: 600; text-transform: uppercase; white-space: nowrap;
+  }
+
+  /* ── WEBSITE SHOWCASE ── */
+  .showcase { padding: 0 16px; margin-bottom: 10px; }
+
+  .site-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.10);
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 18px;
+    transition: border-color 0.25s;
+    position: relative;
+  }
+  .site-card:hover { border-color: rgba(255,202,40,0.40); }
+
+  .site-preview {
+    position: relative;
+    width: 100%; height: 220px;
+    overflow: hidden;
+    background: #111128;
+    cursor: pointer;
+  }
+  .site-preview iframe {
+    width: 375px; height: 667px;
+    border: none;
+    transform: scale(0.52) translateX(-50%) translateY(-50%);
+    transform-origin: 0 0;
+    position: absolute;
+    top: 50%; left: 50%;
+    pointer-events: none;
+  }
+  .site-preview-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 50%, rgba(10,10,26,0.90) 100%);
+    display: flex; align-items: flex-end; padding: 14px;
+    z-index: 2;
+  }
+  .live-badge {
+    position: absolute; top: 12px; right: 12px; z-index: 3;
+    background: rgba(16,185,129,0.18); border: 1px solid rgba(16,185,129,0.45);
+    border-radius: 20px; padding: 3px 10px;
+    font-size: 10px; color: #10B981; font-weight: 600;
+    display: flex; align-items: center; gap: 5px;
+  }
+  .live-dot { width: 6px; height: 6px; border-radius: 50%; background: #10B981; animation: pulse 1.5s ease-in-out infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+
+  .site-info { padding: 14px 18px 16px; }
+  .site-name { font-family: var(--font-display); font-size: 17px; font-weight: 700; margin-bottom: 4px; }
+  .site-desc { font-size: 12px; color: var(--muted); line-height: 1.5; margin-bottom: 10px; }
+  .site-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+  .site-tag {
+    font-size: 10px; padding: 3px 10px; border-radius: 20px;
+    background: rgba(124,58,237,0.18); border: 1px solid rgba(124,58,237,0.30);
+    color: #c4b5fd; font-weight: 500;
+  }
+  .visit-btn {
+    display: block; text-align: center;
+    margin: 4px 18px 16px;
+    padding: 9px 18px;
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 10px; font-size: 12px; color: rgba(255,255,255,0.70);
+    text-decoration: none; font-weight: 500;
+    transition: all 0.2s;
+  }
+  .visit-btn:hover { background: rgba(255,202,40,0.10); border-color: var(--gold); color: var(--gold); }
+
+  /* ── INCLUDED SECTION ── */
+  .included { padding: 0 16px; margin-bottom: 24px; }
+  .included-card {
+    background: rgba(255,255,255,0.04); border: 1px solid var(--border);
+    border-radius: 20px; overflow: hidden;
+  }
+  .included-header {
+    background: linear-gradient(90deg, rgba(124,58,237,0.55), rgba(16,185,129,0.20));
+    padding: 12px 18px;
+    font-family: var(--font-display); font-size: 13px; font-weight: 700;
+    letter-spacing: 1px; text-transform: uppercase; color: white;
+    border-bottom: 1px solid rgba(255,255,255,0.10);
+  }
+  .included-list { padding: 10px 0; }
+  .included-item {
+    display: flex; align-items: center; gap: 12px;
+    padding: 10px 18px; border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+  .included-item:last-child { border-bottom: none; }
+  .check-icon {
+    width: 22px; height: 22px; border-radius: 50%; flex-shrink: 0;
+    background: linear-gradient(135deg, var(--purple), var(--green));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px;
+  }
+  .included-text { font-size: 13px; color: rgba(255,255,255,0.88); }
+  .included-text span { color: var(--gold); font-weight: 600; }
+
+  /* ── CTA SECTION ── */
+  .cta-section { padding: 0 16px; margin-bottom: 20px; }
+  .cta-main {
+    background: linear-gradient(135deg, #7C3AED 0%, #10B981 100%);
+    border-radius: 20px; padding: 28px 24px; text-align: center;
+    position: relative; overflow: hidden;
+    box-shadow: 0 20px 60px rgba(124,58,237,0.40);
+  }
+  .cta-main::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.15) 0%, transparent 60%);
+  }
+  .cta-tagline {
+    font-family: var(--font-display); font-size: 26px; font-weight: 800;
+    line-height: 1.15; margin-bottom: 8px; position: relative;
+  }
+  .cta-sub { font-size: 13px; color: rgba(255,255,255,0.85); margin-bottom: 20px; position: relative; }
+
+  .cta-buttons { display: flex; flex-direction: column; gap: 10px; position: relative; }
+  .btn-wa {
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    padding: 15px 20px; border-radius: 14px;
+    background: #25D366; color: white; font-weight: 700;
+    font-size: 15px; text-decoration: none; font-family: var(--font-display);
+    box-shadow: 0 6px 24px rgba(37,211,102,0.35);
+    transition: transform 0.15s;
+  }
+  .btn-wa:hover { transform: translateY(-2px); }
+  .wa-icon { font-size: 20px; line-height: 1; }
+
+  .btn-email {
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    padding: 13px 20px; border-radius: 14px;
+    background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.30);
+    color: white; font-weight: 600; font-size: 13px; text-decoration: none;
+    transition: background 0.15s;
+  }
+  .btn-email:hover { background: rgba(255,255,255,0.25); }
+
+  /* ── FOOTER ── */
+  .footer {
+    text-align: center; padding: 20px 24px 0;
+  }
+  .footer-url {
+    font-family: var(--font-display); font-size: 13px; font-weight: 700;
+    color: var(--gold); letter-spacing: 0.5px; margin-bottom: 4px;
+  }
+  .footer-tagline {
+    font-size: 11px; color: var(--muted); letter-spacing: 1px;
+  }
+
+  /* ── URGENCY STRIP ── */
+  .urgency-strip {
+    margin: 20px 16px 0;
+    background: linear-gradient(90deg, rgba(255,202,40,0.12), rgba(255,202,40,0.06));
+    border: 1px solid rgba(255,202,40,0.30);
+    border-radius: 14px; padding: 12px 18px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .urgency-icon { font-size: 22px; flex-shrink: 0; }
+  .urgency-text strong { display: block; font-size: 13px; color: var(--gold); font-weight: 700; }
+  .urgency-text span { font-size: 11px; color: var(--muted); }
+
+  /* ── TRUST STRIP ── */
+  .trust-strip {
+    display: grid; grid-template-columns: repeat(4,1fr); gap: 8px;
+    padding: 0 16px; margin: 20px 0 0;
+  }
+  .trust-item {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 12px; padding: 10px 6px; text-align: center;
+  }
+  .trust-icon { font-size: 18px; margin-bottom: 4px; }
+  .trust-label { font-size: 9.5px; color: var(--muted); line-height: 1.3; }
+</style>
+</head>
+<body>
+<div class="bg-mesh"></div>
+<div class="page">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="logo-row">
+      <div class="logo-badge">PHENIL<br>ROOPA<br>AI</div>
+      <div class="logo-text">
+        <div class="logo-name">PhenilRoopa AI</div>
+        <div class="logo-tag">Refined. Radiant. Remarkable.</div>
+      </div>
+      <div class="location-badge">📍 Mumbai, IN</div>
+    </div>
+
+    <div class="eyebrow">AI-Powered Digital Agency</div>
+    <div class="hero-headline">WEBSITES</div>
+    <div class="hero-sub">THAT GET CLIENTS.</div>
+    <p class="hero-desc">We build fast, modern, AI-powered websites that convert visitors into paying customers — delivered in just 7 days.</p>
+
+    <div class="pills">
+      <div class="pill accent">⚡ 7-Day Delivery</div>
+      <div class="pill">Mobile Ready</div>
+      <div class="pill">SEO Optimized</div>
+      <div class="pill accent">🤖 AI Chatbot</div>
+      <div class="pill">Admin Panel</div>
+      <div class="pill">6 Months Support</div>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="stat-card">
+      <div class="stat-num">50+</div>
+      <div class="stat-label">Happy Clients</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">98%</div>
+      <div class="stat-label">Satisfaction</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">7<span style="font-size:15px">Days</span></div>
+      <div class="stat-label">Fast Delivery</div>
+    </div>
+  </div>
+
+  <!-- WEBSITE SHOWCASE -->
+  <div class="section-label"><span>Our Live Work</span></div>
+  <div class="showcase">
+
+    <!-- Site 1 -->
+    <div class="site-card">
+      <div class="site-preview">
+        <div class="live-badge"><div class="live-dot"></div> LIVE</div>
+        <iframe src="https://canoeatl.netlify.app/" title="Canoe Atlanta" loading="lazy" scrolling="no" tabindex="-1"></iframe>
+        <div class="site-preview-overlay"></div>
+      </div>
+      <div class="site-info">
+        <div class="site-name">Canoe Restaurant & Events</div>
+        <div class="site-desc">Elegant restaurant website with event booking, stunning visuals, and seamless mobile experience — built for Atlanta's finest dining.</div>
+        <div class="site-tags">
+          <span class="site-tag">Restaurant</span>
+          <span class="site-tag">Events</span>
+          <span class="site-tag">Booking</span>
+        </div>
+      </div>
+      <a href="https://canoeatl.netlify.app/" class="visit-btn" target="_blank" rel="noopener">🔗 View Live Site →</a>
+    </div>
+
+    <!-- Site 2 -->
+    <div class="site-card">
+      <div class="site-preview">
+        <div class="live-badge"><div class="live-dot"></div> LIVE</div>
+        <iframe src="https://capable-cobbler-51e16b.netlify.app/" title="AI Studio App" loading="lazy" scrolling="no" tabindex="-1"></iframe>
+        <div class="site-preview-overlay"></div>
+      </div>
+      <div class="site-info">
+        <div class="site-name">AI-Powered Web App</div>
+        <div class="site-desc">Modern AI-integrated web application with smart automation features — demonstrating our cutting-edge AI-first development approach.</div>
+        <div class="site-tags">
+          <span class="site-tag">AI App</span>
+          <span class="site-tag">Web App</span>
+          <span class="site-tag">Automation</span>
+        </div>
+      </div>
+      <a href="https://capable-cobbler-51e16b.netlify.app/" class="visit-btn" target="_blank" rel="noopener">🔗 View Live Site →</a>
+    </div>
+
+    <!-- Site 3 -->
+    <div class="site-card">
+      <div class="site-preview">
+        <div class="live-badge"><div class="live-dot"></div> LIVE</div>
+        <iframe src="https://madhushomemadetiffine.netlify.app/" title="Madhu's Tiffin" loading="lazy" scrolling="no" tabindex="-1"></iframe>
+        <div class="site-preview-overlay"></div>
+      </div>
+      <div class="site-info">
+        <div class="site-name">Madhu's Homemade Tiffin</div>
+        <div class="site-desc">Beautiful food delivery website with online ordering, WhatsApp integration, and local SEO — helping a home kitchen scale its business.</div>
+        <div class="site-tags">
+          <span class="site-tag">Food Business</span>
+          <span class="site-tag">Delivery</span>
+          <span class="site-tag">WhatsApp</span>
+        </div>
+      </div>
+      <a href="https://madhushomemadetiffine.netlify.app/" class="visit-btn" target="_blank" rel="noopener">🔗 View Live Site →</a>
+    </div>
+
+    <!-- Site 4 -->
+    <div class="site-card">
+      <div class="site-preview">
+        <div class="live-badge"><div class="live-dot"></div> LIVE</div>
+        <iframe src="https://sudhirmeenaadvertising.netlify.app/" title="Sudhir Meena Advertising" loading="lazy" scrolling="no" tabindex="-1"></iframe>
+        <div class="site-preview-overlay"></div>
+      </div>
+      <div class="site-info">
+        <div class="site-name">Sudhir Meena Advertising</div>
+        <div class="site-desc">Professional advertising agency website with portfolio showcase, service listings, and lead capture — converting visitors to clients from day one.</div>
+        <div class="site-tags">
+          <span class="site-tag">Advertising</span>
+          <span class="site-tag">Portfolio</span>
+          <span class="site-tag">Lead Gen</span>
+        </div>
+      </div>
+      <a href="https://sudhirmeenaadvertising.netlify.app/" class="visit-btn" target="_blank" rel="noopener">🔗 View Live Site →</a>
+    </div>
+
+  </div>
+
+  <!-- WHAT'S INCLUDED -->
+  <div class="section-label"><span>What You Get</span></div>
+  <div class="included">
+    <div class="included-card">
+      <div class="included-header">✦ Website Package — All Included</div>
+      <div class="included-list">
+        <div class="included-item">
+          <div class="check-icon">✓</div>
+          <div class="included-text">Dynamic Website — <span>10+ Pages</span></div>
+        </div>
+        <div class="included-item">
+          <div class="check-icon">✓</div>
+          <div class="included-text">Mobile Responsive Design</div>
+        </div>
+        <div class="included-item">
+          <div class="check-icon">✓</div>
+          <div class="included-text">WhatsApp + Contact Form</div>
+        </div>
+        <div class="included-item">
+          <div class="check-icon">✓</div>
+          <div class="included-text">SEO + Google Analytics Setup</div>
+        </div>
+        <div class="included-item">
+          <div class="check-icon">✓</div>
+          <div class="included-text"><span>AI Chatbot</span> Integration (Exclusive)</div>
+        </div>
+        <div class="included-item">
+          <div class="check-icon">✓</div>
+          <div class="included-text">Admin Panel — Easy to Manage</div>
+        </div>
+        <div class="included-item">
+          <div class="check-icon">✓</div>
+          <div class="included-text"><span>6 Months</span> Free Technical Support</div>
+        </div>
+        <div class="included-item">
+          <div class="check-icon">✓</div>
+          <div class="included-text">Delivery in <span>Just 7 Days</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- URGENCY STRIP -->
+  <div class="urgency-strip">
+    <div class="urgency-icon">🔥</div>
+    <div class="urgency-text">
+      <strong>Limited Slots Available This Month!</strong>
+      <span>We take only a few clients at a time to ensure top quality.</span>
+    </div>
+  </div>
+
+  <!-- TRUST STRIP -->
+  <div class="trust-strip">
+    <div class="trust-item">
+      <div class="trust-icon">🔒</div>
+      <div class="trust-label">100% Secure &amp; Reliable</div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">🚀</div>
+      <div class="trust-label">On-Time Delivery</div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">💬</div>
+      <div class="trust-label">Dedicated Support</div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">💰</div>
+      <div class="trust-label">Affordable Pricing</div>
+    </div>
+  </div>
+
+  <!-- CTA SECTION -->
+  <div class="section-label" style="margin-top:24px"><span>Get Started Today</span></div>
+  <div class="cta-section">
+    <div class="cta-main">
+      <div class="cta-tagline">Get Your Website<br>Ready in 7 Days! 🚀</div>
+      <div class="cta-sub">Message us now — slots fill up fast!</div>
+      <div class="cta-buttons">
+        <a class="btn-wa" href="https://wa.me/918108789081?text=Hi%20PhenilRoopa%20AI!%20I%20want%20a%20website%20for%20my%20business." target="_blank" rel="noopener">
+          <span class="wa-icon">💬</span> Chat on WhatsApp · 8108789081
+        </a>
+        <a class="btn-email" href="mailto:chauhanphenil@gmail.com?subject=Website%20Enquiry%20-%20PhenilRoopa%20AI">
+          📧 chauhanphenil@gmail.com
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-url"></div>
+    <div class="footer-tagline">Every business deserves marketing that delivers real results.<br>PhenilRoopa AI — Your Digital Growth Partner</div>
+  </div>
+
+</div>
+</body>
+</html>

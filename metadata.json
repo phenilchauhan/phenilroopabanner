@@ -1,0 +1,6 @@
+{
+  "name": "PhenilRoopa AI Banner",
+  "description": "A polished, responsive advertising banner/landing page for PhenilRoopa AI web development agency.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

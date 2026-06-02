@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+@theme {
+  --color-gold: #FFCA28;
+  --color-gold-dark: #F59E0B;
+  --color-brand-purple: #7C3AED;
+  --color-brand-green: #10B981;
+  --color-navy: #0A0A1A;
+  --color-navy2: #10102A;
+  --font-display: 'Syne', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+}
+
+body {
+  background-color: var(--color-navy);
+  color: white;
+  font-family: var(--font-body);
+}
+
+.bg-mesh {
+  position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  background:
+    radial-gradient(ellipse 60% 55% at 15% 20%, rgba(124,58,237,0.22) 0%, transparent 65%),
+    radial-gradient(ellipse 50% 45% at 85% 70%, rgba(16,185,129,0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 35% at 50% 50%, rgba(255,202,40,0.06) 0%, transparent 70%),
+    #0A0A1A;
+}
+
+.live-dot::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: inherit;
+  animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
